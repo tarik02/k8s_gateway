@@ -6,23 +6,23 @@ LDFLAGS := "-s -w -X github.com/coredns/coredns/coremain.GitCommit=$(COMMIT)"
 ARCHS := "linux/amd64,linux/arm64,linux/mips64"
 
 # Where to push the docker image.
-REGISTRY ?= quay.io/oriedge
+REGISTRY ?= ghcr.io/tarik02
 
 
 # Image URL to use all building/pushing image targets
 IMG ?= $(REGISTRY)/$(BIN)
 
 setup:
-	./test/kind-with-registry.sh 
+	./test/kind-with-registry.sh
 
-up: 
+up:
 	tilt up
 
 down:
 	tilt down
 
-nuke: 
-	./test/teardown-kind-with-registry.sh 
+nuke:
+	./test/teardown-kind-with-registry.sh
 
 ## Build the plugin binary
 build:
