@@ -29,7 +29,7 @@ data:
           {{- if .Values.watchedResources }}
           resources {{ join " " .Values.watchedResources }}
           {{- end }}
-          {{- if Values.prefixes }}
+          {{- if .Values.prefixes }}
           prefixes {{ join " " .Values.prefixes }}
           {{- end }}
           {{- if .Values.fallthrough.enabled }}
